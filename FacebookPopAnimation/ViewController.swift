@@ -109,7 +109,7 @@ class ViewController: UIViewController {
         // 角度转动
         var topRotate = sender.topView.layer.pop_animationForKey("topRotate") as? POPSpringAnimation
         var bottomRotate = sender.bottomView.layer.pop_animationForKey("bottomRotate") as? POPSpringAnimation
-        // 位置变化 XY坐标
+        // 位置变化 Y坐标
         var topPosition = sender.topView.layer.pop_animationForKey("topPosition") as? POPSpringAnimation
         var bottomPosition = sender.bottomView.layer.pop_animationForKey("bottomPosition") as? POPSpringAnimation
         
@@ -117,7 +117,10 @@ class ViewController: UIViewController {
         
         var topViewOrigin = sender.topView.bounds.origin as CGPoint
         var bottomViewOrigin = sender.bottomView.bounds.origin as CGPoint
-    
+        
+        var buttonViewHeigh = sender.frame.size.height
+        var buttonViewWidth = sender.frame.size.width
+        
         
         
         
@@ -184,20 +187,20 @@ class ViewController: UIViewController {
             
             //上横杆下移(origin.x+18, origin.y+16) 需要手工修改偏移值
             if topPosition != nil {
-                topPosition?.toValue = NSValue(CGPoint: CGPointMake(topViewOrigin.x+18, topViewOrigin.y+16))
+                topPosition?.toValue = NSValue(CGPoint: CGPointMake(buttonViewWidth/2.1, buttonViewHeigh/2.3))
             }else{
                 topPosition = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
-                topPosition?.toValue = NSValue(CGPoint: CGPointMake(topViewOrigin.x+18, topViewOrigin.y+16))
+                topPosition?.toValue = NSValue(CGPoint: CGPointMake(buttonViewWidth/2.1, buttonViewHeigh/2.3))
                 topPosition?.springBounciness = 10
                 topPosition?.springSpeed = 15
                 sender.topView.layer.pop_addAnimation(topPosition, forKey: "topPosition")
             }
             //下横杆上移(origin.x+9, origin.y+19) 需要手工修改偏移值
             if bottomPosition != nil {
-                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(topViewOrigin.x+9, topViewOrigin.y+19))
+                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(buttonViewWidth/4, buttonViewHeigh/2))
             }else{
                 bottomPosition = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
-                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(topViewOrigin.x+9, topViewOrigin.y+19))
+                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(buttonViewWidth/4, buttonViewHeigh/2))
                 bottomPosition?.springBounciness = 10
                 bottomPosition?.springSpeed = 15
                 sender.bottomView.layer.pop_addAnimation(bottomPosition, forKey: "bottomPosition")
@@ -264,26 +267,28 @@ class ViewController: UIViewController {
                 sender.bottomView.layer.pop_addAnimation(bottomRotate, forKey: "bottomRotate")
             }
             
-            //上横杆位置还原(5, 5)
-            if topPosition != nil {
-                topPosition?.toValue = NSValue(CGPoint: CGPointMake(15, 7))
-            }else{
-                topPosition = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
-                topPosition?.toValue = NSValue(CGPoint: CGPointMake(15, 7))
-                topPosition?.springBounciness = 10
-                topPosition?.springSpeed = 15
-                sender.topView.layer.pop_addAnimation(topPosition, forKey: "topPosition")
-            }
-            //下横杆位置还原(0, 0)
-            if bottomPosition != nil {
-                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(11, 23))
-            }else{
-                bottomPosition = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
-                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(11, 23))
-                bottomPosition?.springBounciness = 10
-                bottomPosition?.springSpeed = 15
-                sender.bottomView.layer.pop_addAnimation(bottomPosition, forKey: "bottomPosition")
-            }
+            
+            // Why not need to prepare return original position?
+//            //上横杆位置还原(5, 5)
+//            if topPosition != nil {
+//                topPosition?.toValue = NSValue(CGPoint: CGPointMake(15, 7))
+//            }else{
+//                topPosition = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
+//                topPosition?.toValue = NSValue(CGPoint: CGPointMake(15, 7))
+//                topPosition?.springBounciness = 10
+//                topPosition?.springSpeed = 15
+//                sender.topView.layer.pop_addAnimation(topPosition, forKey: "topPosition")
+//            }
+//            //下横杆位置还原(0, 0)
+//            if bottomPosition != nil {
+//                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(11, 23))
+//            }else{
+//                bottomPosition = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
+//                bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(11, 23))
+//                bottomPosition?.springBounciness = 10
+//                bottomPosition?.springSpeed = 15
+//                sender.bottomView.layer.pop_addAnimation(bottomPosition, forKey: "bottomPosition")
+//            }
 
             
             

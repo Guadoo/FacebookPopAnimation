@@ -100,6 +100,7 @@
 		94B8F1721BA7C2DF00CB4C8D /* FacebookPopAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				94B8F1971BA7C3DB00CB4C8D /* FacebookPopAnimation-Bridging-Header.h */,
 				94B8F1751BA7C2DF00CB4C8D /* AppDelegate.swift */,
 				94B8F19A1BA7D1E700CB4C8D /* DTButton.swift */,
 				94B8F19C1BA8098900CB4C8D /* DTButton.xib */,
@@ -108,7 +109,6 @@
 				94B8F17C1BA7C2DF00CB4C8D /* Images.xcassets */,
 				94B8F17E1BA7C2DF00CB4C8D /* LaunchScreen.xib */,
 				94B8F1731BA7C2DF00CB4C8D /* Supporting Files */,
-				94B8F1971BA7C3DB00CB4C8D /* FacebookPopAnimation-Bridging-Header.h */,
 			);
 			path = FacebookPopAnimation;
 			sourceTree = "<group>";
