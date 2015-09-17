@@ -109,15 +109,11 @@ class ViewController: UIViewController {
         // 角度转动
         var topRotate = sender.topView.layer.pop_animationForKey("topRotate") as? POPSpringAnimation
         var bottomRotate = sender.bottomView.layer.pop_animationForKey("bottomRotate") as? POPSpringAnimation
-        // 位置变化 Y坐标
+        // 位置变化 XY坐标
         var topPosition = sender.topView.layer.pop_animationForKey("topPosition") as? POPSpringAnimation
         var bottomPosition = sender.bottomView.layer.pop_animationForKey("bottomPosition") as? POPSpringAnimation
         
-        // 获取topView bottomView的原始位置
-        
-        var topViewOrigin = sender.topView.bounds.origin as CGPoint
-        var bottomViewOrigin = sender.bottomView.bounds.origin as CGPoint
-        
+        // 获取topView bottomView的原始长宽
         var buttonViewHeigh = sender.frame.size.height
         var buttonViewWidth = sender.frame.size.width
         
@@ -185,7 +181,7 @@ class ViewController: UIViewController {
                 sender.bottomView.layer.pop_addAnimation(bottomRotate, forKey: "bottomRotate")
             }
             
-            //上横杆下移(origin.x+18, origin.y+16) 需要手工修改偏移值
+            //上横杆下移() 需要手工修改偏移值
             if topPosition != nil {
                 topPosition?.toValue = NSValue(CGPoint: CGPointMake(buttonViewWidth/2.1, buttonViewHeigh/2.3))
             }else{
@@ -195,7 +191,7 @@ class ViewController: UIViewController {
                 topPosition?.springSpeed = 15
                 sender.topView.layer.pop_addAnimation(topPosition, forKey: "topPosition")
             }
-            //下横杆上移(origin.x+9, origin.y+19) 需要手工修改偏移值
+            //下横杆上移() 需要手工修改偏移值
             if bottomPosition != nil {
                 bottomPosition?.toValue = NSValue(CGPoint: CGPointMake(buttonViewWidth/4, buttonViewHeigh/2))
             }else{
